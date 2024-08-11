@@ -46,7 +46,102 @@ table {
 
 /* ----- DESDE AQUÍ ----- */
 
+:root {
+    --line-border-fill: #3498db;
+    --line-border-empty: #383838;
+}
+
 body {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-direction: column;
+    font-family: "Poppins", sans-serif;
+    font-weight: 600;
+    font-style: normal;
+	color: white;
+	background-color: #1f1f1f;
+	height: 100vh;
+    overflow: hidden;
+    margin: 0;
+  	}
+
+	  .divPrincipal {
+		display: flex;
+		justify-content: space-between;
+		position: relative;
+		margin-bottom: 30px;
+		max-width: 100%;
+		width: 350px;
+	  }
+
+	  .divPrincipal::before {
+		content: '';
+		background-color: var(--line-border-empty);
+		position: absolute;
+		top: 50%;
+		left: 0;
+		transform: translateY(-50%);
+		height: 4px;
+		width: 100%;
+		z-index: -1;
+	}
+
+	.progress {
+		background-color: var(--line-border-fill);
+		position: absolute;
+		top: 50%;
+		left: 0;
+		transform: translateY(-50%);
+		height: 4px;
+		width: 0%;
+		z-index: -1;
+		transition: 0.4s ease;
+	}
+
+	.number {
+		background-color: #1f1f1f;
+		color: #e2e2e2;
+		border-radius: 50%;
+		height: 30px;
+		width: 30px;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		border: 3px solid var(--line-border-empty);
+		transition: 0.4s ease;
+	  }
+
+	  .number.active {
+		border-color: var(--line-border-fill);
+	}
+
+	.btn {
+		background-color: var(--line-border-fill);
+		color: #fff;
+		border: 0;
+		border-radius: 6px;
+		cursor: pointer;
+		font-family: inherit;
+		padding: 8px 30px;
+		margin: 5px;
+		font-size: 14px;
+	}
+	
+	.btn:active {
+		transform: scale(0.98);
+	}
+	
+	.btn:focus {
+		outline: 0;
+	}
+	
+	.btn:disabled {
+		background-color: var(--line-border-empty);
+		cursor: not-allowed;
+	}
+
+/* body {
 	display: flex;
 	justify-content: center;
 	align-items: center;
@@ -96,18 +191,18 @@ body {
 	position: absolute;
 	top: 50%;
 	left: 100%;
-	width: 100%; /* Ajusta este valor según la distancia entre los círculos */
+	width: 100%; // Ajusta este valor según la distancia entre los círculos 
 	height: 5px;
 	transform: translateY(-50%);
 	transition: background-color 0.3s ease, box-shadow 0.3s ease;
-	 /* Línea gris visible por defecto */
+	 // Línea gris visible por defecto 
 } 
 
 .number:last-child::after{
 	content: none;
 }
 
-/* Cambia la línea a azul solo si el círculo actual y todos los anteriores están activos */
+// Cambia la línea a azul solo si el círculo actual y todos los anteriores están activos
 .number.active {
     box-shadow: 0 0 10px 5px blue;
     border-color: blue;
@@ -121,29 +216,4 @@ body {
     background-color: blue;
     box-shadow: 0 0 10px 3px blue;
 }
-
-/*.number.active + .number::after,
-.number.active.active + .number::after {
-    background-color: blue;
-    box-shadow: 0 0 10px 3px blue;
-}
-
-.number.active {
-    box-shadow: 0 0 10px 5px blue;
-    border-color: blue;
-}
- .number.active {
-	box-shadow: 0 0 10px 5px blue;
-	border-color: blue;
-}
-
-.number.active::after {
-    background-color: blue;
-    box-shadow: 0 0 10px 3px blue;
-}
-
-.number.active + .number::after {
-    background-color: blue;
-    box-shadow: 0 0 10px 3px blue;
-	}
-    /* Línea azul cuando el círculo está activo */
+ */
