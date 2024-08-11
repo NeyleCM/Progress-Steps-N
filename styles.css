@@ -76,6 +76,7 @@ body {
 	margin: 0 15px 0 15px;
 	padding: 10px 30px;
 	border-radius: 10px;
+	cursor: pointer;
   }
 
   .number {
@@ -98,10 +99,51 @@ body {
 	width: 100%; /* Ajusta este valor según la distancia entre los círculos */
 	height: 5px;
 	transform: translateY(-50%);
-}
+	transition: background-color 0.3s ease, box-shadow 0.3s ease;
+	 /* Línea gris visible por defecto */
+} 
+
 .number:last-child::after{
 	content: none;
 }
+
+/* Cambia la línea a azul solo si el círculo actual y todos los anteriores están activos */
+.number.active {
+    box-shadow: 0 0 10px 5px blue;
+    border-color: blue;
+}
 .number.active {
 	box-shadow: 0 0 10px 5px blue;
+	border-color: blue;
 }
+
+.number.active::after {
+    background-color: blue;
+    box-shadow: 0 0 10px 3px blue;
+}
+
+/*.number.active + .number::after,
+.number.active.active + .number::after {
+    background-color: blue;
+    box-shadow: 0 0 10px 3px blue;
+}
+
+.number.active {
+    box-shadow: 0 0 10px 5px blue;
+    border-color: blue;
+}
+ .number.active {
+	box-shadow: 0 0 10px 5px blue;
+	border-color: blue;
+}
+
+.number.active::after {
+    background-color: blue;
+    box-shadow: 0 0 10px 3px blue;
+}
+
+.number.active + .number::after {
+    background-color: blue;
+    box-shadow: 0 0 10px 3px blue;
+	}
+    /* Línea azul cuando el círculo está activo */
